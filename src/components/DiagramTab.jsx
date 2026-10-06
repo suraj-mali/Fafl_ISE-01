@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { spec } from '../dfa/spec.js';
 import { DiagramSvg } from './DiagramSvg';
+import { CompactDiagramSvg } from './CompactDiagramSvg';
 import { TransitionTable } from './TransitionTable';
 
 export function DiagramTab({ currentState, prevTransition }) {
@@ -65,14 +66,17 @@ export function DiagramTab({ currentState, prevTransition }) {
       {/* Main Diagram Area with Side Panel */}
       <div style={{ display: 'grid', gridTemplateColumns: viewType === 'full' ? '1fr 280px' : '1fr', gap: '20px' }}>
         <div className="card" style={{ padding: '16px', alignItems: 'center' }}>
-          <DiagramSvg
-            viewType={viewType}
-            currentState={currentState}
-            prevTransition={prevTransition}
-            showSelfLoops={showSelfLoops}
-            selectedState={selectedState}
-            setSelectedState={setSelectedState}
-          />
+          {viewType === 'full' ? (
+            <CompactDiagramSvg
+              currentState={currentState}
+              showSelfLoops={showSelfLoops}
+              selectedState={selectedState}
+              setSelectedState={setSelectedState}
+            />
+          ) : (
+            <DiagramSvg viewType="basic" />
+          )}
+
           {viewType === 'basic' && (
             <p style={{ marginTop: '12px', fontSize: '0.875rem', color: 'var(--text-muted)', fontStyle: 'italic', textAlign: 'center' }}>
               "The textbook door: simple, but it has no travel time, no obstruction handling and no lock. The full model fixes this."
