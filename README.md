@@ -108,7 +108,7 @@ npm run preview
 **Department of Computer Science & Engineering**  
 **RIT Rajaramnagar** — Course CS343 FAFL (2026–27)
 
-- **Aditya Patil**
-- **Pranav More**
-- **Sakshi Sawant**
-- **Yash Salunkhe**
+- **Yashraj Jagatap**
+- **Suraj Mali**
+- **Saif Momin**
+- **Prajwal Patil**
